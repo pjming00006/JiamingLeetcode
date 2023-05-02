@@ -12,6 +12,7 @@ class Fibonacci:
         return curr
 
     def fib_recursive(self, n):
+        # Stop criteria: when n = 0 or n = 1
         if n <= 1:
             return n
         else:

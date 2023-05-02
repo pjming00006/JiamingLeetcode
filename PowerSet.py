@@ -28,10 +28,27 @@ class Solution:
             res += [r + [n] for r in res]
         return res
 
+    def find_solution_recursive(self, nums):
+        result = []
+        def recur(ind, nums, res):
+            if ind == len(nums):
+                print(res)
+                result.append(res.copy())
+                return
+            recur(ind+1, nums, res)
+            res.append(nums[ind])
+            recur(ind+1, nums, res)
+            res.pop()
+        recur(0, nums, [])
+        print(result)
+
+
 
 def main():
     s = Solution()
-    result = s.find_solution_iterative([1, 2, 5, 7, 9])
+    # result = s.find_solution_iterative([1, 2, 5, 7, 9])
+
+    result = s.find_solution_recursive([1,8,7])
     print(result)
 
 
