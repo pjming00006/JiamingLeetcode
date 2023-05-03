@@ -1,6 +1,6 @@
 class Solution:
     """
-    Given integer array, return all possible subsets(power sets)
+    Given a string, return the index of the first non-repeating character
     """
 
     def find_solution_brute_force(self, str):
@@ -16,6 +16,7 @@ class Solution:
             if non_repeat:
                 return i
         return -1
+
 
     def find_solution_hash(self, str):
         occur_dict = {}
