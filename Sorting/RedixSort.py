@@ -9,9 +9,6 @@ class Solution:
             else:
                 return 0
 
-        if len(nums) <= 1:
-            return nums
-
         cnts = [0] * 10
         for n in nums:
             cnts[find_digit(n, digit)] += 1
