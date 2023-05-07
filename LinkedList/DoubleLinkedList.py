@@ -118,26 +118,26 @@ class DoubleLinkedList:
         self.size -= 1
         print(f"Deleted node at index {index}")
 
+if __name__ == "__main__":
+    l1 = DoubleLinkedList()
+    l1.addAtHead(4)
+    l1.addAtHead(1)
+    l1.addAtHead(5)
+    l1.deleteAtIndex(3)
+    l1.addAtHead(7)
+    l1.addAtHead(1)
 
-l1 = DoubleLinkedList()
-l1.addAtHead(4)
-l1.addAtHead(1)
-l1.addAtHead(5)
-l1.deleteAtIndex(3)
-l1.addAtHead(7)
-l1.addAtHead(1)
+    h = l1.head
+    while h:
+        print(f"val: {h.val}")
+        h = h.next
 
-h = l1.head
-while h:
-    print(f"val: {h.val}")
-    h = h.next
+    l1.deleteAtIndex(4)
 
-l1.deleteAtIndex(4)
-
-h = l1.head
-while h:
-    print(f"val: {h.val}")
-    h = h.next
+    h = l1.head
+    while h:
+        print(f"val: {h.val}")
+        h = h.next
 
 
 
