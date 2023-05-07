@@ -3,7 +3,7 @@ class ListNode:
         self.val = x
         self.next = None
 
-class MyLinkedList:
+class SinglyLinkedList:
 
     def __init__(self):
         self.size = 0

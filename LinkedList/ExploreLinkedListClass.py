@@ -1,6 +1,6 @@
-import ConstructLinkedList
+import SinglyLinkedList
 
-llist = ConstructLinkedList.MyLinkedList()
+llist = SinglyLinkedList.SinglyLinkedList()
 
 llist.addAtHead(1)
 llist.addAtTail(3)
