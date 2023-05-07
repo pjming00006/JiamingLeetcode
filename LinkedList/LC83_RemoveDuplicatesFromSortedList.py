@@ -19,20 +19,33 @@ class solution:
             return prev
 
         curr = prev.next
+
+        # Approach 1: remove dupe one by one
+        # while curr:
+        #     if curr.val == prev.val:
+        #         prev.next = curr.next
+        #         curr = curr.next
+        #     else:
+        #         curr = curr.next
+        #         prev = prev.next
+
+        # Approach 2: Remove all dupes at once since list is sorted
         while curr:
             if curr.val == prev.val:
-                prev.next = curr.next
                 curr = curr.next
             else:
+                prev.next = curr
+                prev = curr
                 curr = curr.next
-                prev = prev.next
+        prev.next = curr
+
         return l1.head
 
 
 if __name__ == "__main__":
     s = solution()
 
-    in_arr = [1, 1, 2, 3, 3]
+    in_arr = [1,1,2,3,3,4,4,4,5]
     l1 = linkedlist.SinglyLinkedList()
     for n in in_arr:
         l1.addAtTail(n)
