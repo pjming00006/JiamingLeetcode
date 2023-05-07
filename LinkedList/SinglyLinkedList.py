@@ -9,14 +9,18 @@ class SinglyLinkedList:
         self.size = 0
         self.head = ListNode(0)
 
-    def get(self, index: int) -> int:
-        if index > self.size or index < 0:
+    def get(self, index: int, get_value=True):
+        if index >= self.size or index < 0:
             print("Invalid index. Operation Cancelled")
             return -1
 
         node = self.head
         for i in range(index+1):
             node = node.next
+
+        if get_value:
+            return node.val
+        else:
             return node
 
     def addAtHead(self, val: int) -> None:
