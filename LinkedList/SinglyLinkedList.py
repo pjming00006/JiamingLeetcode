@@ -19,6 +19,7 @@ class SinglyLinkedList:
             node = node.next
 
         if get_value:
+            print(node.val)
             return node.val
         else:
             return node
@@ -62,3 +63,24 @@ class SinglyLinkedList:
 
         self.size -= 1
         print(f"Deleted node at index {index}")
+
+    # Use to create linked list cycles
+    def assignNextAtIndex(self, index, next_node):
+        if index > self.size:
+            print("Invalid Index. Operation Cancelled")
+            return
+        if index < 0:
+            index = 0
+            print("Negative index is not valid; changed to index at 0")
+
+        pred = self.head
+        for i in range(index+1):
+            pred = pred.next
+
+        pred.next = next_node
+
+        self.size += 1
+        print(f"Assign given node as next node at index {index}")
+
+
+
