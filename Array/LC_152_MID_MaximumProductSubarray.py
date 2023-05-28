@@ -16,7 +16,7 @@ class Solution:
                 max_p = max(max_p, cur_prod)
 
         return max_p
-    
+
     def find_solution_dynamic(self, nums):
         if len(nums) == 0:
             return 0
