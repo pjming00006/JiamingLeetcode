@@ -1,4 +1,4 @@
-import SinglyLinkedList as linkedlist
+import CLASS_SinglyLinkedList as linkedlist
 
 
 class Solution:

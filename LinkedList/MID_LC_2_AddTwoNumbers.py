@@ -1,4 +1,4 @@
-from SinglyLinkedList import SinglyLinkedList, ListNode
+from CLASS_SinglyLinkedList import SinglyLinkedList, ListNode
 
 class solution:
 
