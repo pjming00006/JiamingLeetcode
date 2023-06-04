@@ -1,4 +1,4 @@
-from LinkedList.SinglyLinkedList import SinglyLinkedList
+from LinkedList.CLASS_SinglyLinkedList import SinglyLinkedList
 
 class StackLinkedList:
     def __init__(self):

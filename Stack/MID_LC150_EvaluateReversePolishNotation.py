@@ -1,5 +1,5 @@
-from StackArr import StackArr
-from StackLinkedList import StackLinkedList
+from CLASS_StackArr import StackArr
+from CLASS_StackLinkedList import StackLinkedList
 import math
 
 class ReversePolishNotation:
