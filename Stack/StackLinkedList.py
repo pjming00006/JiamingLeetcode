@@ -11,9 +11,11 @@ class StackLinkedList:
         print(f"Push value {val} to the stack.")
 
     def pop(self):
+        val = self.stack.get(0, True)
         self.stack.deleteAtIndex(0)
         self.size -= 1
         print("Pop from the stack.")
+        return val
 
     def printStack(self):
         print("Start printing the stack:")
