@@ -15,7 +15,6 @@ class DoubleLinkedList:
         self.head.next = self.tail
         self.tail.prev = self.head
 
-
     def get(self, index: int, get_value=True):
         node = None
         if index >= self.size or index < 0:

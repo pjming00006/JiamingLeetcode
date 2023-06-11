@@ -24,12 +24,18 @@ class StackArr:
             return val
 
     # Get the top of the stack
-    def top(self):
+    def peek(self):
         if self.size == 0:
             print("Stack is empty. Operation cancelled.")
         else:
             print(f"The top of the stack is {self.stack[-1]}")
             return self.stack[-1]
+
+    def is_empty(self):
+        if self.size == 0:
+            return True
+        else:
+            return False
 
     def get_min(self):
         print(f"Min is {min(n for n in self.stack)}")
