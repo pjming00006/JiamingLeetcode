@@ -6,7 +6,7 @@ class ListNode:
 
 class DoubleLinkedList:
 
-    def __init__(self):
+    def __init__(self, print_outcome=False):
         self.size = 0
 
         self.head = ListNode(0)
@@ -14,6 +14,8 @@ class DoubleLinkedList:
 
         self.head.next = self.tail
         self.tail.prev = self.head
+
+        self.print_outcome = print_outcome
 
     def get(self, index: int, get_value=True):
         node = None
@@ -55,7 +57,8 @@ class DoubleLinkedList:
         prev.next = new_node
         curr.prev = new_node
         self.size += 1
-        print("Added node at head")
+        if self.print_outcome:
+            print("Added node at head")
 
     def addAtTail(self, val: int) -> None:
         new_node = ListNode(val)
@@ -67,7 +70,9 @@ class DoubleLinkedList:
         prev.next = new_node
         tail.prev = new_node
         self.size += 1
-        print("Added node at tail")
+
+        if self.print_outcome:
+            print("Added node at tail")
 
 
     def addAtIndex(self, index: int, val: int) -> None:
@@ -98,7 +103,9 @@ class DoubleLinkedList:
         next_node.prev = new_node
 
         self.size += 1
-        print(f"Added node at index {index}")
+
+        if self.print_outcome:
+            print(f"Added node at index {index}")
 
     def deleteAtIndex(self, index: int) -> None:
         # Use >= here because if index = size then this is already pointing at None
@@ -115,7 +122,9 @@ class DoubleLinkedList:
         next_node.prev = prev_node
 
         self.size -= 1
-        print(f"Deleted node at index {index}")
+
+        if self.print_outcome:
+            print(f"Deleted node at index {index}")
 
 if __name__ == "__main__":
     l1 = DoubleLinkedList()

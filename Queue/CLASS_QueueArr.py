@@ -1,13 +1,16 @@
 
 class QueueArr:
-    def __init__(self):
+    def __init__(self, print_outcome=False):
         self.queue = []
         self.size = 0
+        self.print_outcome = print_outcome
 
     def enqueue(self, val):
         self.queue.append(val)
         self.size += 1
-        print(f"Added {val} to the queue.")
+
+        if self.print_outcome:
+            print(f"Added {val} to the queue.")
 
     def dequeue(self):
         if self.size == 0:
