@@ -119,6 +119,7 @@ class BinarySearchTree:
                 helper((in_arr[mid+1:]))
                 return
         helper(in_arr)
+        print("Constructed balanced BST.")
 
 
     # Return the maximum or the minimum node of the tree
@@ -138,9 +139,11 @@ class BinarySearchTree:
         print("Printing tree...")
         root = self.root
         in_arr = [root]
+        level = 0
         while len(in_arr) != 0:
             out_arr = [i.val for i in in_arr]
-            print(out_arr)
+            print(f"Level {level}: {out_arr}")
+
             new_arr = []
             for node in in_arr:
                 if node.left:
@@ -148,6 +151,7 @@ class BinarySearchTree:
                 if node.right:
                     new_arr.append(node.right)
             in_arr = new_arr.copy()
+            level += 1
 
 
 if __name__ == "__main__":
@@ -161,3 +165,6 @@ if __name__ == "__main__":
     l1 = [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29]
     tree.construct_balanced(l1)
     tree.print_by_level()
+    tree.remove(15)
+    tree.print_by_level()
+
