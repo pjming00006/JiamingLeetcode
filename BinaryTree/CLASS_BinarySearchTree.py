@@ -153,18 +153,86 @@ class BinarySearchTree:
             in_arr = new_arr.copy()
             level += 1
 
+    def traverse_bfs(self):
+        if not self.root:
+            return
+
+        re_arr = []
+        root = self.root
+        in_arr = [root]
+        while len(in_arr) != 0:
+            re_arr += [i.val for i in in_arr]
+            new_arr = []
+            for node in in_arr:
+                if node.left:
+                    new_arr.append(node.left)
+                if node.right:
+                    new_arr.append(node.right)
+            in_arr = new_arr.copy()
+        print(re_arr)
+        return re_arr
+
+    def traverse_dfs_inorder(self):
+        def helper(root):
+            if not root:
+                return []
+            while root:
+                helper(root.left)
+                out_arr.append(root.val)
+                helper(root.right)
+                return
+
+        if not self.root:
+            return []
+        root = self.root
+        out_arr = []
+        helper(root)
+        return out_arr
+
+    def traverse_dfs_preorder(self):
+        def helper(root):
+            if not root:
+                return []
+            while root:
+                out_arr.append(root.val)
+                helper(root.left)
+                helper(root.right)
+                return
+
+        if not self.root:
+            return []
+        root = self.root
+        out_arr = []
+        helper(root)
+        return out_arr
+
+
+    def traverse_dfs_postorder(self):
+        def helper(root):
+            if not root:
+                return []
+            while root:
+                helper(root.left)
+                helper(root.right)
+                out_arr.append(root.val)
+                return
+
+        if not self.root:
+            return []
+        root = self.root
+        out_arr = []
+        helper(root)
+        return out_arr
 
 if __name__ == "__main__":
     tree = BinarySearchTree()
 
-    # tree.construct([10, 5, 15, 3, 7, 12, 17])
-    # tree.print_by_level()
-    # tree.remove(10)
-    # tree.print_by_level()
-
     l1 = [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29]
     tree.construct_balanced(l1)
     tree.print_by_level()
-    tree.remove(15)
-    tree.print_by_level()
+    # tree.remove(15)
+    # tree.print_by_level()
+    print(tree.traverse_dfs_inorder())
+    print(tree.traverse_dfs_preorder())
+    print(tree.traverse_dfs_postorder())
 
