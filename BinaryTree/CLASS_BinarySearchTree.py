@@ -84,6 +84,8 @@ class BinarySearchTree:
                         parent.right = None
 
                 self.size -= 1
+                if self.print_outcome:
+                    print(f"Removed {val} from the tree.")
                 return
 
 
@@ -119,7 +121,8 @@ class BinarySearchTree:
                 helper((in_arr[mid+1:]))
                 return
         helper(in_arr)
-        print("Constructed balanced BST.")
+        if self.print_outcome:
+            print("Constructed balanced BST.")
 
 
     # Return the maximum or the minimum node of the tree
