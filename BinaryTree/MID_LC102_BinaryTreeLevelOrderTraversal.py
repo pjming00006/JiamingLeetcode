@@ -37,31 +37,44 @@ class BinaryTree(BinarySearchTree):
             if cur_node.right:
                 node_queue.enqueue(cur_node.right)
 
-    def levelOrder_lc_solution(self, root):
+    def levelOrder_recursive(self, root):
         if not root:
             return []
 
-        out_arr = []
+        levels = []
+
+        def helper(root, level):
+            if not root:
+                return
+            if level == len(levels):
+                levels.append([])
+
+            levels[level].append(root.val)
+
+            if root.left: helper(root.left, level + 1)
+            if root.right: helper(root.right, level + 1)
+
+        helper(root, 0)
+        return levels
+
+    def levelOrder_iterative(self, root):
+        if not root:
+            return []
+        levels = []
         q = deque()
         q.append(root)
 
-        while True:
-            res = []
-            new_q = deque()
-            while q:
+        level = 0
+        while q:
+            for i in range(len(q)):
+                if level == len(levels):
+                    levels.append([])
                 cur_node = q.popleft()
-                res.append(cur_node.val)
-                if cur_node.left:
-                    new_q.append(cur_node.left)
-                if cur_node.right:
-                    new_q.append(cur_node.right)
-
-            out_arr.append(res)
-
-            if not new_q:
-                break
-            q = new_q.copy()
-        return out_arr
+                levels[level].append(cur_node.val)
+                if cur_node.left: q.append(cur_node.left)
+                if cur_node.right: q.append(cur_node.right)
+            level += 1
+        return levels
 
 
 if __name__ == "__main__":
