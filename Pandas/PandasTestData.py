@@ -27,7 +27,8 @@ data = {
 # Create a DataFrame from the dictionary
 df = pd.DataFrame(data)
 
-# Display the first few rows of the DataFrame
-print(df.head())
-
 df.to_csv("test_data.csv", header=True, index=False)
+
+
+
+
