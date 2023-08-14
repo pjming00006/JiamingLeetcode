@@ -21,7 +21,8 @@ data = {
     'Sales': np.random.randint(100, 1000, 200),     # Sales amount
     'Stocks': np.random.randint(0, 1000, 200),      # Stock quantities
     'Distance': np.random.uniform(10, 200, 200),    # Distance in km
-    'Duration': np.random.randint(5, 120, 200)      # Duration in minutes
+    'Duration': np.random.randint(5, 120, 200),      # Duration in minutes
+    'Texts': ["Sample_text" for i in range(200)]
 }
 
 # Create a DataFrame from the dictionary
