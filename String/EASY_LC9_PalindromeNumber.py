@@ -1,9 +1,10 @@
 class Solution:
 
-    def find_solution(self, str):
-        l, r = 0, len(str) - 1
+    def find_solution(self, x):
+        x = str(x)
+        l, r = 0, len(x) - 1
         while l < r:
-            if str[l] != str[r]:
+            if x[l] != x[r]:
                 return False
             l += 1
             r -= 1
@@ -14,9 +15,9 @@ class Solution:
 def main():
     s = Solution()
 
-    result1 = s.find_solution("abcba")
-    result2 = s.find_solution("aaaaaa")
-    result3 = s.find_solution("abcdefghijklmn")
+    result1 = s.find_solution(121)
+    result2 = s.find_solution(12345)
+    result3 = s.find_solution(123454321)
     print(result1, result2, result3)
 
 
