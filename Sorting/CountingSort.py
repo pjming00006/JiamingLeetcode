@@ -19,6 +19,8 @@ class Solution:
         for i in range(1,len(cnts)):
             cnts[i] = cnts[i-1] + cnts[i]
 
+        print(cnts)
+
         res = [0] * len(nums)
         for i in range(len(nums)-1, -1, -1):
             res[cnts[nums[i]] - 1] = nums[i]
@@ -30,7 +32,6 @@ def main():
     s = Solution()
     in_arr = [7,5,3,0,1,3,7,8]
 
-    print(in_arr)
     result1 = s.find_solution(in_arr)
 
     print(result1)
