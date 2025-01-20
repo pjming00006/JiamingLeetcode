@@ -39,20 +39,25 @@ class Solution:
                 cur_max = max(prices[j] - prices[i], cur_max)
         return cur_max
 
+    def maxProfitTwoPointerSimplified(self, prices: list[int]) -> int:
+        p1, p2 = 0, 1
+        maxprofit = 0
+        while p2 < len(prices):
+            maxprofit = max(maxprofit, prices[p2] - prices[p1])
+            if prices[p2] < prices[p1]:
+                p1 = p2
+            p2 += 1
+        return maxprofit
 
-    def maxProfitTwoPointer(self, prices: list[int]) -> int:
-        l, r = 0, 1
-        cur_max = 0
-        # The right pointer always proceeds the left pointer so no need to check left
-        while r < len(prices):
-            # When new price is higher than old price
-            if prices[l] < prices[r]:
-                cur_max = max(cur_max, prices[r] - prices[l])
-            # When new price is lower or equal to old price, update old price to new price
-            else:
-                l = r
-            r += 1
-        return cur_max
+    def maxProfitOnePass(self, prices: list[int]) -> int:
+        """Same as two pointers but not implementing the actual pointers"""
+        minprice = prices[0]
+        maxprofit = 0
+
+        for i in range(1, len(prices)):
+            maxprofit = max(maxprofit, prices[i] - minprice)
+            minprice = min(minprice, prices[i])
+        return maxprofit
 
 
 
