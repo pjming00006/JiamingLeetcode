@@ -40,6 +40,9 @@ class Solution:
         return cur_max
 
     def maxProfitTwoPointerSimplified(self, prices: list[int]) -> int:
+        """
+        Time: O(n), Space: O(1)
+        """
         p1, p2 = 0, 1
         maxprofit = 0
         while p2 < len(prices):
