@@ -26,6 +26,10 @@ from CLASS_BinarySearchTree import TreeNode
 
 class Solution:
     def invertTreeRecurssion(self, root: TreeNode) -> TreeNode:
+        """
+        Time: O(n), Space: O(n). Space can be interpreted as O(h), where h is the height of the tree.
+        If the tree is deep then the recursive stack is big. But since h < n we can call it O(n)
+        """
         if not root:
             return root
 
@@ -37,6 +41,9 @@ class Solution:
         return root
 
     def invertTreeIteration(self, root: TreeNode) -> TreeNode:
+        """
+        Time: O(n), Space: O(n)
+        """
         q = [root]
         while root and q:
             cur_node = q.pop()
