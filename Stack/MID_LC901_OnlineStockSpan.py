@@ -42,6 +42,11 @@ class StockSpanner:
         self.price_list = []
 
     def next(self, price: int) -> int:
+        """
+        Time: Worst case O(n) for each call, if the input prices are always increasing
+              Total worst case time complexity: O(n^2)
+        Space: O(n) because I would need to store all prices
+        """
         self.price_list.append(price)
         cnt = 0
         i = len(self.price_list) - 1
@@ -54,6 +59,10 @@ class StockSpanner:
         return cnt
 
     def nextMonotonicStack(self, price: int) -> int:
+        """
+        Time: Amortized O(1) - if we average out the time required.
+        Space: O(n) because in the worst case I would store all values if prices are always decreasing
+        """
         cnt = 1
         while self.price_stack and price >= self.price_stack[-1][0]:
             p, c = self.price_stack.pop()
