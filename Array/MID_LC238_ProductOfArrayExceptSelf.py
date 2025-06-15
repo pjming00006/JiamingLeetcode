@@ -77,6 +77,28 @@ class Solution:
             r_prd = r_prd * nums[j]
         return l_prd
 
+    def productExceptSelfWithDivision(self, nums: List[int]) -> List[int]:
+        prod = 1
+        zero_cnt = 0
+        zero_ind = None
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                prod = prod * nums[i]
+            else:
+                zero_cnt += 1
+                zero_ind = i
+
+        res = [0] * len(nums)
+        if zero_cnt > 1:
+            return res
+        if zero_cnt == 1:
+            res[zero_ind] = prod
+            return res
+
+        for i in range(len(nums)):
+            res[i] = int(prod / nums[i])
+        return res
+
 obj = Solution()
 res = obj.productExceptSelfOneArray([1,2,3,4])
 print(res)
