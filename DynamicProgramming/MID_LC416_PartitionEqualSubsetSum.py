@@ -44,6 +44,45 @@ class Solution:
             return False
         return get_sum(len(nums) - 1, int(target))
 
+
+    def canPartitionBottomUpRecursion(self, nums: List[int]) -> bool:
+        target = sum(nums) / 2
+        if not target.is_integer():
+            return False
+
+        target = int(target)
+
+        memo = {}
+
+        def dp(i, cur_sum):
+            # Finished processing the last element. Return false
+            if i == len(nums):
+                return False
+
+            if (i, cur_sum) in memo:
+                return memo[(i, cur_sum)]
+
+            new_sum = cur_sum + nums[i]
+            # find target, return True
+            if new_sum == target:
+                memo[(i, cur_sum)] = True
+                return True
+
+            # Less than target, go to next element
+            if new_sum < target and dp(i + 1, new_sum):
+                memo[(i, cur_sum)] = True
+                return True
+
+            # Greater than target, return
+            if dp(i + 1, cur_sum):
+                memo[(i, cur_sum)] = True
+                return True
+
+            memo[(i, cur_sum)] = False
+            return False
+
+        return dp(0, 0)
+
     def canPartitionBottomUp(self, nums: List[int]) -> bool:
         """
         We could maintain a 2-d array to memorize previous results - dp[i][sum]
